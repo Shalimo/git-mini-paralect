@@ -1,14 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import Logo from "../../img/git-logo.svg"
-// import Glass from "../../img/glass.svg"
 import "./header.css";
 
-const Header = () => {
+const Header = ({onInputChange}) => {
+    const [username, setUsername] = useState('');
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        onInputChange(username);
+    }
     return (
         <div className="header-container">
             <img className="header-logo" alt="" src={Logo}></img>
-            <form className="form-container">
-                <input id="logo" type="text" placeholder="Enter GitHub username"></input>
+            <form className="form-container" onSubmit={onSubmit}>
+                <input id="logo" type="text" placeholder="Enter GitHub username" onChange={e => setUsername(e.target.value)}></input>
             </form>
         </div>
     )
