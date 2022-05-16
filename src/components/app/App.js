@@ -8,7 +8,7 @@ const App = () => {
   const [username, setUsername] = useState('');
   
   const mainPage = username !== '' 
-  ? <User/>
+  ? <User username = {username}/>
   : <div className='main-container'>
       <img alt='' src={BigGlass}></img>
       <p>Start with searching a GitHub user</p>

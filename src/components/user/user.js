@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import UserData from "../userData/userData";
+import Spinner from "../../components/spinner/spinner.js"
 
-const User = () => {
+const User = ({username}) => {
 
     const [userInfo, setUserInfo] = useState({});
+    const [loading, setLoading] = useState(false);
 
     const infoAboutUser = (data) => {
         setUserInfo({
@@ -18,14 +20,25 @@ const User = () => {
     }
 
     useEffect(() => {
-        fetch('https://api.github.com/users/Shalimo')
+        // setLoading(true);
+        fetch(`https://api.github.com/users/${username}`)
             .then(data => data.json())
             .then(data => {
                 infoAboutUser(data)
             })
-    })
+    }, [username])
+
+    if (loading) {
+        return (
+            <Spinner/>
+        )
+    }
+
     return (
-        <UserData userInfo = {userInfo}/>
+        <div>
+            <UserData userInfo = {userInfo}/>
+        </div>
+        
     )
 }
 
