@@ -10,6 +10,7 @@ const User = ({username}) => {
     const [userInfo, setUserInfo] = useState({});
     const [loading, setLoading] = useState(false);
     const [found, setFound] = useState(false);
+    const [reposInfo, setReposInfo] = useState([]);
 
     const infoAboutUser = (data) => {
         setUserInfo({
@@ -21,6 +22,14 @@ const User = ({username}) => {
             url: data.html_url,
             reposUrl: data.repos_url
         })
+    }
+
+    const infoAboutRepos = (data) => {
+        setReposInfo({
+            name: data.name,
+            description: data.description
+        }
+        )
     }
 
     useEffect(() => {
@@ -39,6 +48,13 @@ const User = ({username}) => {
                 setLoading(false);
                 setFound(true)
             })
+    }, [username])
+
+    useEffect(() => {
+        setLoading(true);
+        fetch(`https://api.github.com/repos/Shalimo/Monster-Traffic`)
+            .then(data => data.json())
+            .then(data => infoAboutRepos(data))
     }, [username])
 
     if (loading) {
@@ -61,7 +77,7 @@ const User = ({username}) => {
             <UserData userInfo = {userInfo}/>
             <div className="repos">
                 <h1>Repositories (249)</h1>
-                <UserRepos/>
+                <UserRepos reposInfo = {reposInfo}/>
             </div>
         </div>
         
