@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import UserData from "../userData/userData";
+import UserRepos from "../userRepos/userRepos";
 import Spinner from "../../components/spinner/spinner.js"
 import NotFound from "../../img/user-not-found.svg"
 
@@ -57,6 +58,7 @@ const User = ({username}) => {
     return (
         <div>
             <UserData userInfo = {userInfo}/>
+            <UserRepos/>
         </div>
         
     )
