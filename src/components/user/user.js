@@ -3,6 +3,7 @@ import UserData from "../userData/userData";
 import UserRepos from "../userRepos/userRepos";
 import Spinner from "../../components/spinner/spinner.js"
 import NotFound from "../../img/user-not-found.svg"
+import "./user.css";
 
 const User = ({username}) => {
 
@@ -56,9 +57,11 @@ const User = ({username}) => {
     }
 
     return (
-        <div>
+        <div className="user-container">
             <UserData userInfo = {userInfo}/>
-            <UserRepos/>
+            <div className="repos">
+                <UserRepos/>
+            </div>
         </div>
         
     )

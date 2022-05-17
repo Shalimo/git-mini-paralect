@@ -1,3 +1,7 @@
+body {
+  background-color: #E5E5E5;
+}
+
 .main-container {
   display: flex;
   align-items: center;

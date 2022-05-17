@@ -1,0 +1,8 @@
+.user-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.repos {
+    width: 877px;
+}
