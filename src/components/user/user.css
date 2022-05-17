@@ -6,3 +6,10 @@
 .repos {
     width: 877px;
 }
+
+.repos h1 {
+    padding: 5px 24px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+}

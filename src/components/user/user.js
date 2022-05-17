@@ -60,6 +60,7 @@ const User = ({username}) => {
         <div className="user-container">
             <UserData userInfo = {userInfo}/>
             <div className="repos">
+                <h1>Repositories (249)</h1>
                 <UserRepos/>
             </div>
         </div>
