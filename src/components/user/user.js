@@ -24,14 +24,6 @@ const User = ({username}) => {
         })
     }
 
-    const infoAboutRepos = (data) => {
-        setReposInfo({
-            name: data.name,
-            description: data.description
-        }
-        )
-    }
-
     useEffect(() => {
         setLoading(true);
         fetch(`https://api.github.com/users/${username}`)
@@ -52,9 +44,9 @@ const User = ({username}) => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`https://api.github.com/repos/Shalimo/Monster-Traffic`)
+        fetch(`https://api.github.com/users/${username}/repos`)
             .then(data => data.json())
-            .then(data => infoAboutRepos(data))
+            .then(data => setReposInfo(data))
     }, [username])
 
     if (loading) {
