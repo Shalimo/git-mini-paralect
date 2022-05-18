@@ -88,8 +88,8 @@ const User = ({username}) => {
             <div className="repos">
                 <h1>Repositories ({countRepos})</h1>
                 <UserRepos reposInfo = {currentRepoIndex}/>
+                <Pagination reposPerPage={reposPerPage} countRepos={countRepos} paginate={paginate} currentPage={currentPage}/>
             </div>
-            <Pagination reposPerPage={reposPerPage} countRepos={countRepos} paginate={paginate}/>
         </div>
         
     )
