@@ -1,7 +1,9 @@
 import React from "react";
 import "./pagination.css"
+import Prev from "../../img/prev.svg"
+import Next from "../../img/next.svg"
 
-const Pagination = ({reposPerPage, countRepos, paginate, currentPage}) => {
+const Pagination = ({reposPerPage, countRepos, paginate, currentPage, nextPage, prevPage}) => {
     
     const pageNumbers = [];
 
@@ -12,7 +14,9 @@ const Pagination = ({reposPerPage, countRepos, paginate, currentPage}) => {
     const activeToggle = (num) => num === currentPage ? "active" : "page-link" 
 
     return (
+        <div>
         <ul className="pagination">
+            <div className="page-item" onClick={() => prevPage(pageNumbers)}><img className="prev" alt="" src={Prev}></img></div>
             {
                 pageNumbers.map(num => (
                     <li className="page-item" key={num}>
@@ -22,7 +26,9 @@ const Pagination = ({reposPerPage, countRepos, paginate, currentPage}) => {
                     </li>
                 ))
             }
+            <div className="page-item" onClick={() => nextPage(pageNumbers.length)}><img className="next" alt="" src={Next}></img></div>
         </ul>
+        </div>
     )
 }
 

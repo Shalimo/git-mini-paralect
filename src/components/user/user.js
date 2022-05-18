@@ -22,6 +22,16 @@ const User = ({username}) => {
     const currentRepoIndex = reposInfo.slice(firstRepoIndex, lastRepoIndex);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const nextPage = (countOfPages) => {
+        if (currentPage < countOfPages) {
+            setCurrentPage(currentPage => currentPage + 1);
+        }
+    } 
+    const prevPage = (countOfPages) => {
+        if (currentPage > countOfPages[0]) {
+            setCurrentPage(currentPage => currentPage - 1)
+        }
+    }
 
     const infoAboutUser = (data) => {
         setUserInfo({
@@ -88,7 +98,13 @@ const User = ({username}) => {
             <div className="repos">
                 <h1>Repositories ({countRepos})</h1>
                 <UserRepos reposInfo = {currentRepoIndex}/>
-                <Pagination reposPerPage={reposPerPage} countRepos={countRepos} paginate={paginate} currentPage={currentPage}/>
+                <Pagination 
+                reposPerPage={reposPerPage} 
+                countRepos={countRepos} 
+                paginate={paginate} 
+                currentPage={currentPage}
+                nextPage={nextPage}
+                prevPage={prevPage}/>
             </div>
         </div>
         
