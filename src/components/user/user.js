@@ -11,6 +11,7 @@ const User = ({username}) => {
     const [loading, setLoading] = useState(false);
     const [found, setFound] = useState(false);
     const [reposInfo, setReposInfo] = useState([]);
+    const [countRepos, setCountRepos] = useState(0);
 
     const infoAboutUser = (data) => {
         setUserInfo({
@@ -49,6 +50,10 @@ const User = ({username}) => {
             .then(data => setReposInfo(data))
     }, [username])
 
+    useEffect(() => {
+        setCountRepos(reposInfo.length)
+    }, [reposInfo])
+
     if (loading) {
         return (
             <Spinner/>
@@ -68,7 +73,7 @@ const User = ({username}) => {
         <div className="user-container">
             <UserData userInfo = {userInfo}/>
             <div className="repos">
-                <h1>Repositories (249)</h1>
+                <h1>Repositories ({countRepos})</h1>
                 <UserRepos reposInfo = {reposInfo}/>
             </div>
         </div>
