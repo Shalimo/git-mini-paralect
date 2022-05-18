@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UserData from "../userData/userData";
 import UserRepos from "../userRepos/userRepos";
+import Pagination from "../pagination/pagination";
 import Spinner from "../../components/spinner/spinner.js"
 import NotFound from "../../img/user-not-found.svg"
 import "./user.css";
@@ -12,6 +13,15 @@ const User = ({username}) => {
     const [found, setFound] = useState(false);
     const [reposInfo, setReposInfo] = useState([]);
     const [countRepos, setCountRepos] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [reposPerPage] = useState(4);
+
+    // для определния текущей страницы
+    const lastRepoIndex = currentPage * reposPerPage; //4 //8 //12
+    const firstRepoIndex = lastRepoIndex - reposPerPage; //1 //5 //9 //
+    const currentRepoIndex = reposInfo.slice(firstRepoIndex, lastRepoIndex);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     const infoAboutUser = (data) => {
         setUserInfo({
@@ -47,7 +57,10 @@ const User = ({username}) => {
         setLoading(true);
         fetch(`https://api.github.com/users/${username}/repos`)
             .then(data => data.json())
-            .then(data => setReposInfo(data))
+            .then(data => {
+                setReposInfo(data)
+                // console.log(data)
+            })
     }, [username])
 
     useEffect(() => {
@@ -74,8 +87,9 @@ const User = ({username}) => {
             <UserData userInfo = {userInfo}/>
             <div className="repos">
                 <h1>Repositories ({countRepos})</h1>
-                <UserRepos reposInfo = {reposInfo}/>
+                <UserRepos reposInfo = {currentRepoIndex}/>
             </div>
+            <Pagination reposPerPage={reposPerPage} countRepos={countRepos} paginate={paginate}/>
         </div>
         
     )
