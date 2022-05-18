@@ -17,8 +17,8 @@ const User = ({username}) => {
     const [reposPerPage] = useState(4);
 
     // для определния текущей страницы
-    const lastRepoIndex = currentPage * reposPerPage; //4 //8 //12
-    const firstRepoIndex = lastRepoIndex - reposPerPage; //1 //5 //9 //
+    const lastRepoIndex = currentPage * reposPerPage;
+    const firstRepoIndex = lastRepoIndex - reposPerPage;
     const currentRepoIndex = reposInfo.slice(firstRepoIndex, lastRepoIndex);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -55,11 +55,11 @@ const User = ({username}) => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`https://api.github.com/users/${username}/repos`)
+        fetch(`https://api.github.com/users/${username}/repos?per_page=100&page=1`)
             .then(data => data.json())
             .then(data => {
                 setReposInfo(data)
-                // console.log(data)
+                console.log(data)
             })
     }, [username])
 
