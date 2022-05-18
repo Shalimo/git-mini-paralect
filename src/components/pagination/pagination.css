@@ -58,8 +58,10 @@
 
 .prev:hover {
     filter: brightness(0) saturate(100%) invert(25%) sepia(74%) saturate(2830%) hue-rotate(206deg) brightness(94%) contrast(104%);
+    cursor: pointer
 }
 
 .next:hover {
     filter: brightness(0) saturate(100%) invert(25%) sepia(74%) saturate(2830%) hue-rotate(206deg) brightness(94%) contrast(104%);
+    cursor: pointer
 }
