@@ -59,19 +59,25 @@ const User = ({username}) => {
             .then(data => {
                 infoAboutUser(data)
                 setLoading(false);
-                setFound(true)
-            })
-    }, [username])
-
-    useEffect(() => {
-        setLoading(true);
-        fetch(`https://api.github.com/users/${username}/repos?per_page=100&page=1`)
-            .then(data => data.json())
-            .then(data => {
+                setFound(true);
+                fetch(`https://api.github.com/users/${username}/repos?per_page=100&page=1`)
+                .then(data => data.json())
+                .then(data => {
                 setReposInfo(data)
                 console.log(data)
             })
+            })
     }, [username])
+
+    // useEffect(() => {
+    //     setLoading(true);
+    //     fetch(`https://api.github.com/users/${username}/repos?per_page=100&page=1`)
+    //         .then(data => data.json())
+    //         .then(data => {
+    //             setReposInfo(data)
+    //             console.log(data)
+    //         })
+    // }, [username])
 
     useEffect(() => {
         setCountRepos(reposInfo.length)
