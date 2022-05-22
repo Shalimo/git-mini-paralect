@@ -44,6 +44,14 @@
 }
 
 @media screen and (max-width: 700px) { 
+    .repos-container {
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+        width: 80%;
+        margin: 10px;
+        padding: 10px 16px;
+    }
     .repos-name {
         font-size: 18px;
     }
@@ -51,33 +59,8 @@
     .repos-description {
         font-size: 13px;
     }
-
-    .repos-container {
-        display: flex;
-        justify-content: center;
-        width: 50%;
-        margin: 10px
-    }
-}
-
-@media screen and (max-width: 700px) { 
-    .repos-container {
-        padding: 10px 16px;
-    }
-}
-
-@media screen and (max-width: 700px) { 
     .empty-container {
         height: 50%;
         margin-top: 700px;
-    }
-    
-    .repos-description {
-        font-size: 13px;
-    }
-
-    .repos-container {
-        width: 80%;
-        margin: 10px
     }
 }

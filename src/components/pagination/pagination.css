@@ -62,11 +62,10 @@
 @media all and (max-width: 950px) {
     .pagination-container {
       flex-direction: column;
-      margin-right: 20px;
       padding-top: 20px;
     }
     .pagination {
-        margin-right: 35px;
+        margin-right: 38px;
     }
     .active {
         color: #FFFFFF; 
