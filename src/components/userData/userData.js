@@ -5,6 +5,15 @@ import Followers from "../../img/followers.svg";
 import Following from "../../img/following.svg";
 
 const UserData = ({userInfo}) => {
+
+    const checkNum = (num) => {
+        if (userInfo.followers >= 1000 || userInfo.Following >= 1000) {
+            return `${parseFloat((num/1000).toFixed(1))}k` 
+        } else {
+            return num
+        }
+    }
+
     return (
         <div className="data-container">
             <img className="avatar" alt="" src={userInfo.avatar}></img>
@@ -13,11 +22,11 @@ const UserData = ({userInfo}) => {
             <div className="follow-container">
                 <div className="followers">
                     <img className="icon" src={Followers} alt=""></img>
-                    {userInfo.followers} followers
+                    {checkNum(userInfo.followers)} followers
                 </div>
                 <div className="following">
                     <img className="icon" src={Following} alt=""></img>
-                    {userInfo.following} following
+                    {checkNum(userInfo.following)} following
                 </div>
             </div>
         </div>
