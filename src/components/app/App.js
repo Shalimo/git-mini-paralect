@@ -15,7 +15,7 @@ const App = () => {
     </div>;
 
   return (
-    <div>
+    <div className='wrapper'>
       <Header onInputChange = {name => setUsername(name)}/>
       {mainPage}
     </div>

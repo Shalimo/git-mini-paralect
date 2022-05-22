@@ -46,3 +46,23 @@
     align-items: flex-end;
     font-size: 16px;
 }
+
+@media screen and (max-width: 700px) { 
+    .data-container {
+        margin: 0px;
+        margin-top: 20px;
+        align-items: center;
+        text-align: left;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .follow-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .followers, .following {
+        margin: 10px;
+    }
+}

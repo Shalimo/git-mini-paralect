@@ -33,3 +33,24 @@ body {
     background-attachment: scroll;
     background-position: 19px center;
 }
+
+@media screen and (min-width: 1300px) { 
+    .header-container {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 700px) { 
+    .header-container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .form-container {
+        width: 100%;
+    }
+
+    .form-container input {
+        width: 70%;
+    }
+} 

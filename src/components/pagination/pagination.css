@@ -58,3 +58,17 @@
     filter: brightness(0) saturate(100%) invert(25%) sepia(74%) saturate(2830%) hue-rotate(206deg) brightness(94%) contrast(104%);
     cursor: pointer;
 }
+
+@media all and (max-width: 950px) {
+    .pagination-container {
+      flex-direction: column;
+      margin-right: 20px;
+      padding-top: 20px;
+    }
+    .pagination {
+        margin-right: 35px;
+    }
+    .active {
+        color: #FFFFFF; 
+    }
+  }
