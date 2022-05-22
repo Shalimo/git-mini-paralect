@@ -16,7 +16,7 @@ const UserRepos = ({reposInfo}) => {
     return reposInfo.map((repo) => {
         return (
             <div key={repo.name} className="repos-container">
-                <a href={repo.html_url} className="repos-name">{repo.name}</a>
+                <a target="_blank" href={repo.html_url} className="repos-name">{repo.name}</a>
                 <div className="repos-description">{repo.description ? repo.description : "There is no description for this repository"}</div>
             </div>
         )
