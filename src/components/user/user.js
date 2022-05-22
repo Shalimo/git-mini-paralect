@@ -89,7 +89,7 @@ const User = ({username}) => {
 
     if (!found) {
         return (
-            <div className='main-container'>
+            <div className='not-found-container'>
                 <img alt='' src={NotFound}></img>
                 <p>User not found</p>
             </div>

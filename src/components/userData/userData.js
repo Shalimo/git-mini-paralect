@@ -9,7 +9,7 @@ const UserData = ({userInfo}) => {
         <div className="data-container">
             <img className="avatar" alt="" src={userInfo.avatar}></img>
             <h1 className="username">{userInfo.name}</h1>
-            <a href={userInfo.url} className="userlink">{userInfo.url}</a>
+            <a href={userInfo.url} className="userlink">{userInfo.login}</a>
             <div className="follow-container">
                 <div className="followers">
                     <img className="icon" src={Followers} alt=""></img>

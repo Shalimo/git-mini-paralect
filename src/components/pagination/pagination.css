@@ -4,12 +4,6 @@
     justify-content: flex-end;
 }
 
-.pagination-label {
-    display: flex;
-    list-style: none;
-    align-items: center;
-}
-
 .pagination {
     display: flex;
     flex-direction: row;
@@ -47,19 +41,8 @@
 }
 
 .page-link:hover {
-    width: 21px;
-    height: 25px;
-    text-decoration: none;
-    background: #0064EB;
-    border-radius: 3px;
-    font-size: 14px;
-    line-height: 21px;
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    color: #FFFFFF !important; 
-    margin-right: -7px;
-    margin-left: -7px;
+    cursor: pointer;
+    border-bottom: solid 3px #0064EB;
 }
 
 .prev {
@@ -73,5 +56,5 @@
 
 .next:hover {
     filter: brightness(0) saturate(100%) invert(25%) sepia(74%) saturate(2830%) hue-rotate(206deg) brightness(94%) contrast(104%);
-    cursor: pointer
+    cursor: pointer;
 }

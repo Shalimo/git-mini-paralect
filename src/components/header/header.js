@@ -13,7 +13,7 @@ const Header = ({onInputChange}) => {
         <div className="header-container">
             <img className="header-logo" alt="" src={Logo}></img>
             <form className="form-container" onSubmit={onSubmit}>
-                <input id="logo" type="text" placeholder="Enter GitHub username" onChange={e => setUsername(e.target.value)}></input>
+                <input id="logo" autocomplete="off" type="text" placeholder="Enter GitHub username" onChange={e => setUsername(e.target.value)}></input>
             </form>
         </div>
     )
