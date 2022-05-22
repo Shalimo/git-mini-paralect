@@ -105,7 +105,6 @@ const User = ({username}) => {
                 <Pagination
                 reposPerPage={reposPerPage} 
                 countRepos={countRepos} 
-                // paginate={paginate} 
                 currentPage={currentPage}
                 nextPage={nextPage}
                 prevPage={prevPage}

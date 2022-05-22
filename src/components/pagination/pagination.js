@@ -4,6 +4,11 @@ import "./pagination.css"
 
 const Pagination = ({ reposPerPage, countRepos, paginate, firstRepoIndex, lastRepoIndex}) => {
     const items = `${firstRepoIndex + 1} - ${lastRepoIndex}`;
+    if (countRepos === 0) {
+                return (
+                    <></>
+                )
+            }
 	return (
             <div className='pagination-container'>
                 <div className="pagination-item">{items} of {countRepos} items</div>
