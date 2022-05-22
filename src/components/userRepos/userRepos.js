@@ -17,7 +17,7 @@ const UserRepos = ({reposInfo}) => {
         return (
             <div key={repo.name} className="repos-container">
                 <a href="#" className="repos-name">{repo.name}</a>
-                <div className="repos-description">{repo.description}</div>
+                <div className="repos-description">{repo.description ? repo.description : "There is no description for this repository"}</div>
             </div>
         )
     }) 

@@ -1,5 +1,6 @@
 body {
   background-color: #E5E5E5;
+  font-family: 'Inter', sans-serif;
 }
 
 .main-container {
@@ -19,6 +20,7 @@ body {
 .main-container p {
   font-size: 22px;
   text-align: center;
+  color: #808080;
 }
 
 .main-container img {

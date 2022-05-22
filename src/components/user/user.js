@@ -16,12 +16,18 @@ const User = ({username}) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [reposPerPage] = useState(4);
 
+
     // для определния текущей страницы
     const lastRepoIndex = currentPage * reposPerPage;
     const firstRepoIndex = lastRepoIndex - reposPerPage;
     const currentRepoIndex = reposInfo.slice(firstRepoIndex, lastRepoIndex);
 
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    // const paginate = (pageNumber) => setCurrentPage(pageNumber + 1);
+    const paginate = (data) => {
+        const selectedPage = data.selected;
+        setCurrentPage(selectedPage + 1);
+      }
+    
     const nextPage = (countOfPages) => {
         if (currentPage < countOfPages) {
             setCurrentPage(currentPage => currentPage + 1);
@@ -58,26 +64,18 @@ const User = ({username}) => {
             })
             .then(data => {
                 infoAboutUser(data)
-                setLoading(false);
+                setLoading(true);
                 setFound(true);
                 fetch(`https://api.github.com/users/${username}/repos?per_page=100&page=1`)
-                .then(data => data.json())
+                .then(data => {
+                    return data.json()
+                })
                 .then(data => {
                 setReposInfo(data)
-                console.log(data)
+                setLoading(false);
             })
             })
     }, [username])
-
-    // useEffect(() => {
-    //     setLoading(true);
-    //     fetch(`https://api.github.com/users/${username}/repos?per_page=100&page=1`)
-    //         .then(data => data.json())
-    //         .then(data => {
-    //             setReposInfo(data)
-    //             console.log(data)
-    //         })
-    // }, [username])
 
     useEffect(() => {
         setCountRepos(reposInfo.length)
@@ -104,13 +102,16 @@ const User = ({username}) => {
             <div className="repos">
                 <h1>Repositories ({countRepos})</h1>
                 <UserRepos reposInfo = {currentRepoIndex}/>
-                <Pagination 
+                <Pagination
                 reposPerPage={reposPerPage} 
                 countRepos={countRepos} 
-                paginate={paginate} 
+                // paginate={paginate} 
                 currentPage={currentPage}
                 nextPage={nextPage}
-                prevPage={prevPage}/>
+                prevPage={prevPage}
+                firstRepoIndex={firstRepoIndex}
+                lastRepoIndex={lastRepoIndex}
+                paginate={paginate}/>
             </div>
         </div>
         

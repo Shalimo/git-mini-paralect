@@ -1,3 +1,17 @@
+.spinner-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 190px;
+  height: 200px;
+}
+
 @keyframes ldio-oxtw0mty6v {
     0% {
       opacity: 1;
@@ -14,7 +28,7 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: #8572ff;
+    background: #0064EB;
     animation: ldio-oxtw0mty6v 1s linear infinite;
   }.ldio-oxtw0mty6v div:nth-child(1) > div {
     left: 148px;
