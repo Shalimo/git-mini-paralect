@@ -2,7 +2,7 @@ import React from 'react'
 import ReactPaginate from 'react-paginate'
 import "./pagination.css"
 
-const Pagination = ({ reposPerPage, countRepos, paginate, firstRepoIndex, lastRepoIndex}) => {
+const Pagination = ({ reposPerPage, countRepos, paginate, firstRepoIndex, lastRepoIndex, currentPage}) => {
     const items = `${firstRepoIndex + 1} - ${lastRepoIndex}`;
     if (countRepos === 0) {
                 return (
@@ -22,9 +22,10 @@ const Pagination = ({ reposPerPage, countRepos, paginate, firstRepoIndex, lastRe
                         </svg>
                         }
                         onPageChange={paginate}
-                        pageRangeDisplayed={3}
+                        pageRangeDisplayed={2}
                         pageCount={countRepos / reposPerPage}
                         renderOnZeroPageCount={null}
+                        marginPagesDisplayed={1}
                         activeClassName="active"
                         previousClassName="page-item prev"
                         nextClassName="page-item next"
