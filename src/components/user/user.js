@@ -3,11 +3,11 @@ import UserData from "../userData/userData";
 import UserRepos from "../userRepos/userRepos";
 import Pagination from "../pagination/pagination";
 import Spinner from "../../components/spinner/spinner.js"
-import NotFound from "../../img/user-not-found.svg"
+import UserDataNotFound from "../userDataNotFound/userDataNotFound";
 import "./user.css";
 
 const User = ({username}) => {
-
+    
     const [userInfo, setUserInfo] = useState({});
     const [loading, setLoading] = useState(false);
     const [found, setFound] = useState(false);
@@ -16,13 +16,10 @@ const User = ({username}) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [reposPerPage] = useState(4);
 
-
-    // для определния текущей страницы
     const lastRepoIndex = currentPage * reposPerPage;
     const firstRepoIndex = lastRepoIndex - reposPerPage;
     const currentRepoIndex = reposInfo.slice(firstRepoIndex, lastRepoIndex);
 
-    // const paginate = (pageNumber) => setCurrentPage(pageNumber + 1);
     const paginate = (data) => {
         const selectedPage = data.selected;
         setCurrentPage(selectedPage + 1);
@@ -71,14 +68,14 @@ const User = ({username}) => {
                     return data.json()
                 })
                 .then(data => {
-                setReposInfo(data)
+                setReposInfo(data);
                 setLoading(false);
-            })
+                })
             })
     }, [username])
 
     useEffect(() => {
-        setCountRepos(reposInfo.length)
+        setCountRepos(reposInfo.length);
     }, [reposInfo])
 
     if (loading) {
@@ -89,10 +86,7 @@ const User = ({username}) => {
 
     if (!found) {
         return (
-            <div className='not-found-container'>
-                <img alt='' src={NotFound}></img>
-                <p>User not found</p>
-            </div>
+            <UserDataNotFound />
         )
     }
 
@@ -112,8 +106,7 @@ const User = ({username}) => {
                 lastRepoIndex={lastRepoIndex}
                 paginate={paginate}/>
             </div>
-        </div>
-        
+        </div>        
     )
 }
 

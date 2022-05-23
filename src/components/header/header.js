@@ -3,6 +3,7 @@ import Logo from "../../img/git-logo.svg"
 import "./header.css";
 
 const Header = ({onInputChange}) => {
+    
     const [username, setUsername] = useState('');
 
     const onSubmit = (e) => {

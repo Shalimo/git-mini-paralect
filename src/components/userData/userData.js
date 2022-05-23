@@ -1,11 +1,10 @@
 import React from "react";
 import './userData.css';
-// import Avatar from "../../img/avatar.svg";
 import Followers from "../../img/followers.svg";
 import Following from "../../img/following.svg";
 
 const UserData = ({userInfo}) => {
-
+    
     const checkNum = (num) => {
         if (userInfo.followers >= 1000 || userInfo.Following >= 1000) {
             return `${parseFloat((num/1000).toFixed(1))}k` 

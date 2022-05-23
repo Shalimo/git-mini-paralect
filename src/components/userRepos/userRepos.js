@@ -1,15 +1,12 @@
 import React from "react";
 import "./userRepos.css";
-import NotFound from "../../img/repos-not-found.svg"
+import UserReposNotFound from "../userReposNotFound/userReposNotFound";
 
 const UserRepos = ({reposInfo}) => {
 
     if (reposInfo.length === 0) {
         return (
-            <div className='empty-container'>
-                <img alt='' src={NotFound}></img>
-                <p>Repository list is empty</p>
-            </div>
+            <UserReposNotFound/>
         )
     }
 
@@ -21,7 +18,6 @@ const UserRepos = ({reposInfo}) => {
             </div>
         )
     }) 
-
 }
 
 export default UserRepos;

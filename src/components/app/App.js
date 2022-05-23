@@ -5,8 +5,9 @@ import './App.css';
 import React, {useState} from 'react';
 
 const App = () => {
-  const [username, setUsername] = useState('');
   
+  const [username, setUsername] = useState('');
+
   const mainPage = username !== '' 
   ? <User username = {username}/>
   : <div className='main-container'>

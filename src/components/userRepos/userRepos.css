@@ -27,22 +27,6 @@
     color: #000000;
 }
 
-.empty-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 250px;
-    height: 100px;
-    font-size: 22px;
-    color: #808080;
-}
-
 @media screen and (max-width: 700px) { 
     .repos-container {
         display: flex;
@@ -54,13 +38,8 @@
     }
     .repos-name {
         font-size: 18px;
-    }
-    
+    }  
     .repos-description {
         font-size: 13px;
-    }
-    .empty-container {
-        height: 50%;
-        margin-top: 700px;
     }
 }
